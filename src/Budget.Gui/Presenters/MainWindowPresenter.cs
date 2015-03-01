@@ -5,6 +5,7 @@
     using System.Windows.Controls;
     using Budget.Gui.Framework;
     using Budget.Gui.ViewModels;
+    using Budget.Gui.Views;
     using StructureMap;
 
     public sealed class MainWindowPresenter : IDisposable
@@ -33,16 +34,19 @@
 
         public void Show()
         {
-            SideBarPresenter sideBarPresenter = ResolvePresenter<SideBarPresenter>(mainWindow.SideBar);
-            PurchasePresenter purchasePresenter = ResolvePresenter<PurchasePresenter>(mainWindow.MainContent);
+            SideBarPresenter sideBarPresenter = ResolvePresenter<SideBarPresenter>();
+            PurchasePresenter purchasePresenter = ResolvePresenter<PurchasePresenter>();
             Console.WriteLine(container.WhatDoIHave());
+
+            mainWindow.SideBar.Content = sideBarPresenter.View;
+            mainWindow.MainContent.Content = purchasePresenter.View;
 
             mainWindow.Show();
         }
 
-        private T ResolvePresenter<T>(ContentPresenter contentPresenter)
+        private T ResolvePresenter<T>()
         {
-            return container.With<ContentPresenter>(contentPresenter).GetInstance<T>();
+            return container.GetInstance<T>();
         }
 
         public void Dispose()

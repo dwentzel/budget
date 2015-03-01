@@ -28,7 +28,7 @@
 
         public IEnumerable GetErrors(string propertyName)
         {
-            return new string[0];
+            return new[] { "error:" + propertyName };
         }
 
         protected void OnPropertyChanged([CallerMemberName]string propertyName = null)

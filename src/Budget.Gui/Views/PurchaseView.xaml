@@ -23,11 +23,11 @@
 			<ColumnDefinition x:Uid="ColumnDefinition_3" Width="Auto"/>
 		</Grid.ColumnDefinitions>
 		<Label x:Uid="Label_1" Content="Datum"/>
-		<TextBox x:Name="PurchaseDate" x:Uid="TextBox_1" TextWrapping="Wrap" Grid.Row="1" Text="{Binding Date, ValidatesOnNotifyDataErrors=False}"/>
+		<TextBox x:Name="PurchaseDate" x:Uid="TextBox_1" TextWrapping="Wrap" Grid.Row="1" Text="{Binding Date}"/>
 		<Label x:Uid="Label_2" Content="Pris" Grid.Row="2"/>
-		<TextBox x:Name="PurchasePrice" x:Uid="TextBox_2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Price, ValidatesOnNotifyDataErrors=False}"/>
+		<TextBox x:Name="PurchasePrice" x:Uid="TextBox_2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Price}"/>
 		<Label Content="Kategori" Grid.Row="4"/>
-		<ComboBox x:Name="PurchaseCategory" Grid.Row="5" ItemsSource="{Binding AvailableCategories}" SelectedItem="{Binding Category, ValidatesOnNotifyDataErrors=False}"/>
+		<ComboBox x:Name="PurchaseCategory" Grid.Row="5" ItemsSource="{Binding AvailableCategories}" SelectedItem="{Binding Category}"/>
 		<Button x:Name="SaveButton" Content="Spara" Grid.Row="6"/>
 	</Grid>
 </UserControl>

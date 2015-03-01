@@ -1,4 +1,4 @@
-﻿namespace Budget.Gui
+﻿namespace Budget.Gui.Views
 {
     using System.Windows;
 
