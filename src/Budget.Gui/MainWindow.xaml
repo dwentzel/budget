@@ -1,0 +1,12 @@
+﻿<Window x:Uid="Window_1"
+	    xml:lang="sv-SE"
+	    x:Class="Budget.Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel x:Uid="DockPanel_1">
+        <ContentPresenter x:Uid="ToolBar" DockPanel.Dock="Top" x:Name="ToolBar" />
+        <ContentPresenter x:Uid="SideBar" DockPanel.Dock="Left" x:Name="SideBar" Margin="5" />
+        <ContentPresenter x:Uid="MainContent" x:Name="MainContent" Margin="5" />
+    </DockPanel>
+</Window>
