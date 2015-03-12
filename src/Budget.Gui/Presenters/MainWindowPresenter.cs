@@ -2,18 +2,21 @@
 {
     using System;
     using System.Diagnostics.Contracts;
-    using System.Windows.Controls;
-    using Budget.Gui.Framework;
+    using Budget.Gui.Services;
     using Budget.Gui.ViewModels;
     using Budget.Gui.Views;
     using StructureMap;
 
-    public sealed class MainWindowPresenter : IDisposable
+    public sealed class MainWindowPresenter : IDisposable, INavigationTarget
     {
         private readonly Container container;
 
         private readonly MainWindow mainWindow;
         private readonly MainWindowViewModel mainWindowViewModel;
+
+        private SideBarPresenter sideBarPresenter;
+        private ExpensePresenter purchasePresenter;
+        private BudgetPeriodPresenter monthlyBudgetPresenter;
 
         public MainWindowPresenter()
         {
@@ -26,7 +29,8 @@
 
             container = new Container(c =>
             {
-                c.For<IViewContainer>().Use<ContentPresenterViewContainer>();
+                c.For<INavigationTarget>().Use(this);
+                //c.For<IViewContainer>().Use<ContentPresenterViewContainer>();
                 //c.For<SideBarView>().Use<SideBarView>();
                 //c.For<SideBarViewModel>().Use<SideBarViewModel>();
             });
@@ -34,8 +38,10 @@
 
         public void Show()
         {
-            SideBarPresenter sideBarPresenter = ResolvePresenter<SideBarPresenter>();
-            PurchasePresenter purchasePresenter = ResolvePresenter<PurchasePresenter>();
+            sideBarPresenter = ResolvePresenter<SideBarPresenter>();
+            purchasePresenter = ResolvePresenter<ExpensePresenter>();
+            monthlyBudgetPresenter = ResolvePresenter<BudgetPeriodPresenter>();
+
             Console.WriteLine(container.WhatDoIHave());
 
             mainWindow.SideBar.Content = sideBarPresenter.View;
@@ -52,6 +58,18 @@
         public void Dispose()
         {
             container.Dispose();
+        }
+
+        public void NavigateTo(string target)
+        {
+            if (target == "monthlybudget")
+            {
+                mainWindow.MainContent.Content = monthlyBudgetPresenter.View;
+            }
+            else if (target == "purchase")
+            {
+                mainWindow.MainContent.Content = purchasePresenter.View;
+            }
         }
     }
 }

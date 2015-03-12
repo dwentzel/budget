@@ -1,12 +1,14 @@
-﻿<UserControl
+﻿<Framework:View
 			 x:Uid="UserControl_1" xml:lang="sv-SE"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:ViewModels="clr-namespace:Budget.Gui.ViewModels" x:Class="Budget.Gui.Views.PurchaseView"
+             xmlns:ViewModels="clr-namespace:Budget.Gui.ViewModels"
+             xmlns:Framework="clr-namespace:Budget.Gui.Framework"
+             x:Class="Budget.Gui.Views.ExpenseView"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance {x:Type ViewModels:PurchaseViewModel}}">
+             d:DataContext="{d:DesignInstance {x:Type ViewModels:ExpenseViewModel}}">
 	<Grid x:Uid="Grid_1">
 		<Grid.RowDefinitions>
 			<RowDefinition x:Uid="RowDefinition_1" Height="Auto"/>
@@ -23,11 +25,11 @@
 			<ColumnDefinition x:Uid="ColumnDefinition_3" Width="Auto"/>
 		</Grid.ColumnDefinitions>
 		<Label x:Uid="Label_1" Content="Datum"/>
-		<TextBox x:Name="PurchaseDate" x:Uid="TextBox_1" TextWrapping="Wrap" Grid.Row="1" Text="{Binding Date}"/>
+		<TextBox x:Name="ExpenseDate" x:Uid="TextBox_1" TextWrapping="Wrap" Grid.Row="1" Text="{Binding Date}"/>
 		<Label x:Uid="Label_2" Content="Pris" Grid.Row="2"/>
-		<TextBox x:Name="PurchasePrice" x:Uid="TextBox_2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Price}"/>
+		<TextBox x:Name="ExpensePrice" x:Uid="TextBox_2" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Price}"/>
 		<Label Content="Kategori" Grid.Row="4"/>
-		<ComboBox x:Name="PurchaseCategory" Grid.Row="5" ItemsSource="{Binding AvailableCategories}" SelectedItem="{Binding Category}"/>
+		<ComboBox x:Name="ExpenseCategory" Grid.Row="5" ItemsSource="{Binding AvailableCategories}" SelectedItem="{Binding Category}"/>
 		<Button x:Name="SaveButton" Content="Spara" Grid.Row="6"/>
 	</Grid>
-</UserControl>
+</Framework:View>

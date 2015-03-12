@@ -1,19 +1,24 @@
 ﻿namespace Budget.Gui.Presenters
 {
     using System.Diagnostics.Contracts;
+    using System.Windows.Controls;
     using Budget.Gui.Framework;
     using Budget.Gui.ViewModels;
     using Budget.Gui.Views;
 
-    public class PurchasePresenter : Presenter<PurchaseView, PurchaseViewModel>
+    public class ExpensePresenter : Presenter<ExpenseView, ExpenseViewModel>
     {
-        public PurchasePresenter(PurchaseViewModel viewModel, ViewLoader viewLoader)
+        public ExpensePresenter(ExpenseViewModel viewModel, ViewLoader viewLoader)
             : base(viewModel, viewLoader)
         {
             Contract.Requires(viewModel != null);
             Contract.Requires(viewLoader != null);
+        }
 
-            View.SaveButton.Command = new DelegateCommand(() => SavePurchase());
+        protected override void OnViewLoaded()
+        {
+            Button saveButton = View.FindChildByName<Button>("SaveButton");
+            saveButton.Command = new DelegateCommand(() => SavePurchase());
         }
 
         private void SavePurchase()

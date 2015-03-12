@@ -4,14 +4,14 @@
     using System.Collections.ObjectModel;
     using Budget.Gui.Framework;
 
-    public class PurchaseViewModel : ViewModel
+    public class ExpenseViewModel : ViewModel
     {
         private readonly ObservableCollection<string> availableCategories;
         private string category;
         private DateTime date;
         private decimal price;
 
-        public PurchaseViewModel()
+        public ExpenseViewModel()
         {
             availableCategories = new ObservableCollection<string>
             {
