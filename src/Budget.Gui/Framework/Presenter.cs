@@ -1,10 +1,9 @@
 ﻿namespace Budget.Gui.Framework
 {
     using System.Diagnostics.Contracts;
-    using System.Windows.Controls;
 
     public abstract class Presenter<TView, TViewModel>
-        where TView : Control
+        where TView : View
         where TViewModel : ViewModel
     {
         private readonly TView view;

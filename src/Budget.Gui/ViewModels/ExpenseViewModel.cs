@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.ObjectModel;
+    using System.ComponentModel.DataAnnotations;
     using Budget.Gui.Framework;
 
     public class ExpenseViewModel : ViewModel
@@ -61,6 +62,7 @@
             }
         }
 
+        [Range(1, 120)]
         public decimal Price
         {
             get

@@ -15,7 +15,7 @@
             int index = viewModelTypeName.LastIndexOf("Model");
             string viewName = viewModelTypeName.Substring(0, index);
 
-            Uri resourceLocator = new System.Uri("/Budget.Gui;component/views/" + viewName + ".xaml", System.UriKind.Relative);
+            Uri resourceLocator = new System.Uri("/Views/" + viewName + ".xaml", System.UriKind.Relative);
             return Application.LoadComponent(resourceLocator);
         }
     }
