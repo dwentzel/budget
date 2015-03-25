@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModels="clr-namespace:Budget.Gui.ViewModels"
-             xmlns:Framework="clr-namespace:Budget.Gui.Framework"
+             xmlns:Framework="clr-namespace:Budget.Framework;assembly=Budget.Framework"
              x:Class="Budget.Gui.Views.ExpenseView"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance {x:Type ViewModels:ExpenseViewModel}}">

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel.DataAnnotations;
-    using Budget.Gui.Framework;
+    using Budget.Framework;
 
     public class ExpenseViewModel : ViewModel
     {

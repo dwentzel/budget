@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ViewModels="clr-namespace:Budget.Gui.ViewModels" 
-             xmlns:Framework="clr-namespace:Budget.Gui.Framework"
+             xmlns:Framework="clr-namespace:Budget.Framework;assembly=Budget.Framework"
              x:Uid="UserControl_1" 
 			 xml:lang="sv-SE"
 		     x:Class="Budget.Gui.Views.SideBarView" 
@@ -20,6 +20,6 @@
 	<StackPanel x:Uid="StackPanel_1">
 		<TextBlock x:Uid="TextBlock_1" Text="The side bar" />
 		<TextBlock x:Uid="TextBlock_2" Text="{Binding Text}" />
-		<ItemsControl x:Name="NavigationTargets" Height="100" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding NavigationTargets}"/>
+		<ItemsControl x:Name="NavigationTargets" Height="100" ItemTemplate="{DynamicResource DataTemplate1}" ItemsSource="{Binding NavigationTargets}" />
 	</StackPanel>
 </Framework:View>

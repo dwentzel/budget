@@ -2,7 +2,7 @@
 {
     using System.Diagnostics.Contracts;
     using System.Windows.Controls;
-    using Budget.Gui.Framework;
+    using Budget.Framework;
     using Budget.Gui.ViewModels;
     using Budget.Gui.Views;
 
@@ -17,7 +17,7 @@
 
         protected override void OnViewLoaded()
         {
-            Button saveButton = View.FindChildByName<Button>("SaveButton");
+            Button saveButton = FindElementByName<Button>(View, "SaveButton");
             saveButton.Command = new DelegateCommand(() => SavePurchase());
         }
 

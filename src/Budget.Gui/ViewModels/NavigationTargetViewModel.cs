@@ -1,6 +1,6 @@
 ﻿namespace Budget.Gui.ViewModels
 {
-    using Budget.Gui.Framework;
+    using Budget.Framework;
 
     public class NavigationTargetViewModel : ViewModel
     {

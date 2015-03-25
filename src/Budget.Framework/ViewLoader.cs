@@ -1,4 +1,4 @@
-﻿namespace Budget.Gui.Framework
+﻿namespace Budget.Framework
 {
     using System;
     using System.Diagnostics.Contracts;

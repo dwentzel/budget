@@ -2,7 +2,7 @@
 {
     using System.Collections.ObjectModel;
     using System.Diagnostics.Contracts;
-    using Budget.Gui.Framework;
+    using Budget.Framework;
 
     public class SideBarViewModel : ViewModel
     {

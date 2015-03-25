@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budget.Core", "Budget.Core\Budget.Core.csproj", "{6B9AC42B-C28D-4D08-92CE-F255B519FE8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2AD5BF93-4082-4DAA-A380-8486A175D31B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Budget.Framework", "src\Budget.Framework\Budget.Framework.csproj", "{D890FA63-DDF8-463D-B588-BB07AF1476D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +36,15 @@ Global
 		{6B9AC42B-C28D-4D08-92CE-F255B519FE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B9AC42B-C28D-4D08-92CE-F255B519FE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B9AC42B-C28D-4D08-92CE-F255B519FE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D890FA63-DDF8-463D-B588-BB07AF1476D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D890FA63-DDF8-463D-B588-BB07AF1476D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D890FA63-DDF8-463D-B588-BB07AF1476D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D890FA63-DDF8-463D-B588-BB07AF1476D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FACBBC96-C192-4332-959F-44DF5721A8F7} = {2AD5BF93-4082-4DAA-A380-8486A175D31B}
 	EndGlobalSection
 EndGlobal

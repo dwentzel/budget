@@ -1,4 +1,4 @@
-﻿namespace Budget.Gui.Framework
+﻿namespace Budget.Framework
 {
     using System;
     using System.Collections;
@@ -16,6 +16,7 @@
         protected ViewModel()
         {
             Contract.Ensures(propertyErrorMap != null);
+
             propertyErrorMap = new Dictionary<string, IList<string>>();
             IsNotifying = true;
         }
@@ -24,7 +25,13 @@
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool HasErrors { get { return propertyErrorMap.Any(); } }
+        public bool HasErrors
+        {
+            get
+            {
+                return propertyErrorMap.Any();
+            }
+        }
 
         protected bool IsNotifying { get; set; }
 
@@ -41,9 +48,12 @@
 
         protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
-            if (IsNotifying && PropertyChanged != null)
+            Contract.Requires(propertyName != null);
+
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (IsNotifying && handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
 
             ValidateProperty(propertyName);
@@ -51,6 +61,8 @@
 
         private void ValidateProperty(string propertyName)
         {
+            Contract.Requires(propertyName != null);
+
             if (propertyErrorMap.ContainsKey(propertyName))
             {
                 propertyErrorMap.Remove(propertyName);
@@ -74,26 +86,17 @@
 
                 propertyErrorMap[propertyName] = errors;
             }
+
+            OnErrorsChanged(propertyName);
         }
 
         private void OnErrorsChanged(string propertyName)
         {
-            if (IsNotifying && ErrorsChanged != null)
+            EventHandler<DataErrorsChangedEventArgs> handler = ErrorsChanged;
+            if (IsNotifying && handler != null)
             {
-                ErrorsChanged(this, new DataErrorsChangedEventArgs(propertyName));
+                handler(this, new DataErrorsChangedEventArgs(propertyName));
             }
         }
-
-        //private void AddError(string propertyName)
-        //{
-        //    IList<string> errors;
-        //    if (!propertyErrorMap.TryGetValue(propertyName, out errors))
-        //    {
-        //        errors = new List<string>();
-        //        propertyErrorMap[propertyName] = errors;
-        //    }
-
-        //    errors.Add("ERRROR");
-        //}
     }
 }
